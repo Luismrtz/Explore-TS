@@ -19,9 +19,3 @@ export const SearchApi = (apis: string) => async (dispatch: Dispatch<Action>) =>
             });
     }
 }
-
-//! Learn styled ocmponents with typescript
-//! implement a few card examples and stuff here
-//! push it to github.  DONT WORRY about hosting it
-//! add a little snip of the project
-//! THEN DO PYTHON F's TO WEBDEV YO TEHEEE
