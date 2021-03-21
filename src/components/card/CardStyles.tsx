@@ -4,10 +4,8 @@ import styled, {css} from 'styled-components';
 export const CardContainer = styled.div`
 
     width: 100%;
-    background-color: ghostwhite;
-    /* background: #2C3E50;  
-background: -webkit-linear-gradient(to bottom, #4CA1AF, #2C3E50); 
-background: linear-gradient(to bottom, #4CA1AF, #2C3E50);  */
+    background-color: ${({theme}) => theme.colors.main};
+
 height: auto;
 `
 
@@ -36,15 +34,15 @@ export const Card1 = styled.div`
     /* z-index: 250; */
     /* max-width: 40rem; */
     height: 55rem;
-    border: 2px solid black;
-    background-color: ghostwhite;
+    border: 2px solid  ${({theme}) => theme.colors.dark};
+    background-color: ${({theme}) => theme.colors.main};
     
 `
 
 export const Divider = styled.div`
     /* padding-top: 1rem; */
     width: 100%;
-    border-top: 2px solid black;
+    border-top: 2px solid  ${({theme}) => theme.colors.dark};
 `
 
 export const CardInner = styled.div`
@@ -57,11 +55,11 @@ export const CardInner = styled.div`
     align-items: center;
 
     h1 {
-        font-size: 2rem;
+        font-size: ${({theme}) => theme.fonts.m};
     }
     h2 {
         margin-top: 2rem;
-        font-size: 5rem;
+        font-size: ${({theme}) => theme.fonts.xxl};;
     }
 
     h3 {
@@ -69,7 +67,7 @@ export const CardInner = styled.div`
     }
     p {
         margin-top: 3rem;
-        font-size: 1.6rem;
+        font-size: ${({theme}) => theme.fonts.s};
     }
 
     @media ${({theme}) => theme.mediaQueries.below500} {
@@ -79,7 +77,7 @@ export const CardInner = styled.div`
 `
 export const Paragraph = styled.div`
     margin: 3rem 0;
-    font-size: 1.6rem;
+    font-size: ${({theme}) => theme.fonts.s};
 `
 
 
@@ -87,9 +85,9 @@ export const Paragraph = styled.div`
 export const CardButton = styled.button`
 /* margin: 2rem 0; */
   display: block;
-  background-color: #f7797d;
-  color: #fff;
-  font-size: 2.0rem;
+  background-color: ${({theme}) => theme.colors.secondary};
+  color:  ${({theme}) => theme.colors.main};
+  font-size: ${({theme}) => theme.fonts.m};
   border: 0;
   /* border-radius: 10px; */
   height: 4rem;
@@ -98,6 +96,10 @@ export const CardButton = styled.button`
   cursor: pointer;
   box-sizing: border-box;
 
+  transition: all .3s ease;
+    &:hover {   
+    background-color: ${({theme}) => theme.colors.tertiary};
+ }
 
 
 `

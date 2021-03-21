@@ -13,7 +13,7 @@ width: 100%;
 /* height: 170rem; */
 /* height: auto; */
 max-height: auto;
-background-color: ghostwhite;
+background-color: ${({theme}) => theme.colors.main};
 position: relative;
 
 
@@ -69,13 +69,13 @@ flex-direction: column;
    justify-content: center;
 
    h1{
-      font-size: 4rem;
+      font-size: ${({theme}) => theme.fonts.xl};
       margin-bottom: 2rem;
    }
 
    
    h2 {
-      font-size: 2rem;
+      font-size: ${({theme}) => theme.fonts.m};
       margin-bottom: 4rem;
    }
 
@@ -89,8 +89,11 @@ flex-direction: column;
       align-items: center;
    justify-content: center;
       h1{
-      font-size: 3rem;
+      font-size: ${({theme}) => theme.fonts.l};
       /* margin-bottom: 2rem; */
+   }
+   h2 {
+      font-size: ${({theme}) => theme.fonts.s};
    }
       /* max-width: 30rem; */
       /* width: 100%; */
@@ -99,9 +102,9 @@ flex-direction: column;
 
 export const BoxButton = styled.button`
   display: block;
-  background-color: ghostwhite;
-  color: black;
-  font-size: 2.2rem;
+  background-color: ${({theme}) => theme.colors.main};
+  color: ${({theme}) => theme.colors.font};
+  font-size: ${({theme}) => theme.fonts.m};
   /* border: 0; */
   border-radius: 5rem;
   height: 7rem;
@@ -109,13 +112,18 @@ export const BoxButton = styled.button`
   padding: 0 2rem;
   cursor: pointer;
   box-sizing: border-box;
-  border: 2px solid black;
+  border: 2px solid ${({theme}) => theme.colors.dark};
+  transition: all .3s ease;
 
   @media ${({theme}) => theme.mediaQueries.below500} {
    height: 5.5rem;
    width: 17rem;
   }
-
+  &:hover {
+     background-color: ${({theme}) => theme.colors.secondary};
+     color: ${({theme}) => theme.colors.main};
+     border-color: ${({theme}) => theme.colors.secondary};
+  }
 `
 
 

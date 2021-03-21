@@ -1,7 +1,7 @@
 import React, {useRef, useEffect, useState } from 'react'
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { useActions } from '../../hooks/useActions';
-import {PokemonWrapper, CloseModalButton, PokemonBorder, Powers, Power, PokeTypes } from './PokemanStyles'
+import {PokemonWrapper, PokeForm, CloseModalButton, PokemonBorder, Powers, Power, PokeTypes, SearchInputButton, PokeImgWrapper, FormWrapper } from './PokemanStyles'
 
 
 const Pokemans: React.FC<PokeTypes> = ({isOn}) => {
@@ -32,17 +32,22 @@ const Pokemans: React.FC<PokeTypes> = ({isOn}) => {
     return (
             <>
             {isOn === true ? <>
-       <form onSubmit={onSubmit}>
-        <input placeholder="Pokemon...." value={term}  onChange={(e) => setTerm(e.target.value)} />
-        <button>Search</button>
-      
-      </form>
+
+            <FormWrapper>
+            <PokeForm onSubmit={onSubmit}>
+             <input placeholder="Pokemon...." value={term}  onChange={(e) => setTerm(e.target.value)} />
+              <button><SearchInputButton/></button>
+           </PokeForm>
+            </FormWrapper>
+  
       {loading && <h3>Loading...</h3>}
          {data?.sprites ? (
           <PokemonWrapper onClick={closeModal} ref={modalRef}>
      <PokemonBorder>
        <CloseModalButton  onClick={() => SearchApi('')}/>
-        <img src={data.sprites?.front_default} alt=""/>
+          <PokeImgWrapper>
+            <img src={data.sprites?.front_default} alt=""/>
+          </PokeImgWrapper>
         <Powers>
           {/* {data.sprites ? (
             <> */}

@@ -9,8 +9,6 @@ import Card from '../card/Card';
 
 
 
-
-
 // export type demTypes = {
 //     showModal: boolean
 // }

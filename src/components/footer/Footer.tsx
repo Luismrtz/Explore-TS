@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
-import {One, Link, FormWrapper, Wrapper, CopyWrite, Three, ThreeContentOne, StyledButton, StyledError, ThreeContentTwo, ThreeContentMenu, OneContentOne, OneContentMenu, OneContentTwo,   InputContainer, StyledForm, StyledInput, TextArea, StyledButtonWrapper, CopyWriteWrapper, OneWrapper, ThreeWrapper } from './FooterStyles'
+import {One, FormWrapper, Wrapper, CopyWrite, Three, ThreeContentOne, StyledButton, StyledError, ThreeContentTwo, ThreeContentMenu, OneContentOne, OneContentMenu, OneContentTwo,   InputContainer, StyledForm, StyledInput, TextArea, StyledButtonWrapper, CopyWriteWrapper, OneWrapper, ThreeWrapper, StyleLink } from './FooterStyles'
+import { Link } from 'react-router-dom'
+
 
 export type FormTypes = {
    handleSubmit?: React.FormEventHandler<HTMLFormElement> | undefined;
@@ -112,10 +114,10 @@ const Footer: React.FC<FormTypes> = () => {
               
               
                 <ThreeContentTwo>
-                      <Link>Home</Link>
-                    <Link>About</Link>
-                    <Link>Album</Link>
-                    <Link>Services</Link>
+                      <Link to="/"><StyleLink >Home</StyleLink></Link>
+                    <Link to="/about"><StyleLink>About</StyleLink></Link>
+                    <Link to="/services"><StyleLink>Services</StyleLink></Link>
+                    <Link to="/pricing"><StyleLink>Pricing</StyleLink></Link>
                 </ThreeContentTwo>
                 
               </ThreeWrapper>

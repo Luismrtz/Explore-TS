@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { BtnWrapper, JoinBtn, MobileNavLinks, MobilePageWrapper, NavButton, NavLinks, NavWrapper, TitleWrapper } from './NavbarStyles'
+import { BtnWrapper, CloseNavButton, OpenNavButton, JoinBtn, MobileNavLinks, MobilePageWrapper, NavButton, NavLinks, NavWrapper, TitleWrapper, NavButtonWrapper } from './NavbarStyles'
 import { Link } from 'react-router-dom'
 
 
@@ -39,10 +39,26 @@ export const Navbar: React.FC = () => {
                     <Link to="/services">SERVICES</Link>
                     <Link to="/pricing">Pricing</Link>
                 </NavLinks>
-                <JoinBtn>
-                <Link to="/album">Join Now</Link>
-                </JoinBtn>
-                <NavButton  onClick={() => setMobileModal(prev => !prev)}>+</NavButton>
+                <Link to="/album">
+                  <JoinBtn>
+                     Join Now
+                  </JoinBtn>
+                </Link>
+
+                {/* <NavButtonWrapper> */}
+                <NavButton mobileModal={mobileModal}  onClick={() => setMobileModal(prev => !prev)}>
+                    {/* { mobileModal ? */}
+                    {/* <CloseNavButton mobileModal={mobileModal}></CloseNavButton> */}
+                        {/* : */}
+                    {/* <OpenNavButton mobileModal={mobileModal}></OpenNavButton> */}
+                            {/* } */}
+
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </NavButton>
+                {/* </NavButtonWrapper> */}
+  
             </BtnWrapper>
 
             <MobilePageWrapper mobileModal={mobileModal}>

@@ -45,51 +45,51 @@ export const HeaderTitleWrapper = styled.div`
 `
 
 export const HeaderTitle = styled.h1`
-    font-size: 12rem;
-    /* color: ghostwhite; */
-    color: rgba(196,48,107,1);
+    font-size: ${({theme}) => theme.fonts.mega};
+
+    color: ${({theme}) => theme.colors.main};
     padding: 0 2rem;
 
 
     @media ${({theme}) => theme.mediaQueries.below1500} {
-      font-size: 10rem;
+      font-size: ${({theme}) => theme.fonts.mega};
       }
     @media ${({theme}) => theme.mediaQueries.below1000} {
-      font-size: 8rem;
+      font-size: ${({theme}) => theme.fonts.xxxl};
       }
     @media ${({theme}) => theme.mediaQueries.below750} {
-      font-size: 6.5rem;
+      font-size: ${({theme}) => theme.fonts.xxxl};
       }
     @media ${({theme}) => theme.mediaQueries.below500} {
-      font-size: 4rem;
+      font-size: ${({theme}) => theme.fonts.xl};
      
       }
  `
 export const Headerh2 = styled.h2`
-    font-size: 4rem;
-    color: rgba(196,48,107,1);
+   font-size: ${({theme}) => theme.fonts.xl};
+    color: ${({theme}) => theme.colors.main};
     margin-bottom: 4rem;
     padding: 0 2rem;
 
     @media ${({theme}) => theme.mediaQueries.below1500} {
-      font-size: 3.5rem;
+      font-size: ${({theme}) => theme.fonts.xl};
       }
     @media ${({theme}) => theme.mediaQueries.below1000} {
-      font-size: 3rem;
+      font-size: ${({theme}) => theme.fonts.l};
       }
     @media ${({theme}) => theme.mediaQueries.below750} {
-      font-size: 2.3rem;
+      font-size: ${({theme}) => theme.fonts.l};
       }
     @media ${({theme}) => theme.mediaQueries.below500} {
-      font-size: 1.8rem;
+      font-size: ${({theme}) => theme.fonts.s};
       }
  `
 
  export const HeaderBtn = styled.button`
 display: block;
-  background-color: ghostwhite;
-  color: black;
-  font-size: 2.2rem;
+  background-color: ${({theme}) => theme.colors.main};
+  color: ${({theme}) => theme.colors.font};
+  font-size: ${({theme}) => theme.fonts.l};
   border: 0;
   border-radius: 5rem;
   height: 7rem;
@@ -97,15 +97,23 @@ display: block;
   padding: 0 2rem;
   cursor: pointer;
   box-sizing: border-box;
+  border: 1px solid  ${({theme}) => theme.colors.main};
+
+  transition: all .3s ease;
+
+  &:hover {
+    background-color: transparent;
+    color: ${({theme}) => theme.colors.main};
+  }
 
 
   @media ${({theme}) => theme.mediaQueries.below1000} {
-      font-size: 2.2rem;
+    font-size: ${({theme}) => theme.fonts.m};
       height: 5.5rem;
-      width: 16.5rem;
+      width: 13.5rem;
       }
   @media ${({theme}) => theme.mediaQueries.below500} {
-      font-size: 1.9rem;
+    font-size: ${({theme}) => theme.fonts.s};
       height: 4rem;
       width: 11.5rem;
       }
@@ -116,98 +124,3 @@ display: block;
 
 
 
-
-
-
-//  export const DisplayBoxPage = styled.div`
-//     width: 100%;
-//     height: 170rem;
-//     background-color: ghostwhite;
-//     position: relative;
-    
-//  `
-
-
-// ///! DELETE? 
-//  //? grid of 4 container
-//  export const DisplayBoxContainer = styled.div`
-//     display: grid;
-//     z-index: 150;
-//     grid-template-columns: 1fr 1fr;
-//     grid-template-rows:80rem 80rem;
-//     padding: 0 6rem;
-//     /* width: auto; */
-//     /* height: auto; */
-//     /* max-width: 180rem; */
-//     /* height: 120rem; */
-//     margin: 0 auto;
-//     top: -14rem;
-//     position: relative;
-//  `
-
-//  export const DisplayImg = styled.img`
-//     /* width: 12.6rem;
-//     height: 6.4rem; */
-    
-//     //background-color: {({inputColor}) => inputColor || 'orangered'}; */
-//    width:100%;
-//    height: 100%;
-//     background-repeat: no-repeat;
-// background-position: center;
-// background-size: cover;
-//  `
-//  export const DisplayBox = styled.div<Htypes>`
-//     /* width: 12.6rem;
-//     height: 6.4rem; */
-    
-//     background-color: ${({inputColor}) => inputColor || 'orangered'};
-
-//  `
-
-// export const DisplayBoxTextWrapper = styled.div`
-// /* width: 12.6rem;
-// height: 6.4rem; */
-// width:100%;
-// height: 100%;
-// /* position: relative; */
-// display: flex;
-// flex-direction: column;
-//    align-items: center;
-//    justify-content: center;
-
-// `
-
-// export const DisplayBoxText = styled.div`
-//    width: 60rem;
-//    display: flex;
-// flex-direction: column;
-//    align-items: left;
-//    justify-content: center;
-
-//    h1{
-//       font-size: 4rem;
-//       margin-bottom: 2rem;
-//    }
-
-   
-//    h2 {
-//       font-size: 2rem;
-//       margin-bottom: 4rem;
-//    }
-// `
-
-// export const BoxButton = styled.button`
-//   display: block;
-//   background-color: ghostwhite;
-//   color: black;
-//   font-size: 2.2rem;
-//   /* border: 0; */
-//   border-radius: 5rem;
-//   height: 7rem;
-//   width: 20rem;
-//   padding: 0 2rem;
-//   cursor: pointer;
-//   box-sizing: border-box;
-//   border: 2px solid black;
-
-// `

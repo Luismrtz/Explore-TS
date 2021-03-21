@@ -144,7 +144,7 @@ const FilterItems: React.FC= () => {
       <TabLine></TabLine>
       <p>${food.price}</p>
 
-        <FilterButton>Button</FilterButton>
+        {/* <FilterButton>Button</FilterButton> */}
 
 </TabContent>
 

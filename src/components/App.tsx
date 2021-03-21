@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import { store } from '../state';
 // import Home from './pages/Home';
 import { Navbar } from './navbar/Navbar';
-import { Album, Home, Services, About, Pricing} from '../interfaces/index';
+import {  Home, Services, About, Pricing, Purchase} from '../interfaces/index';
 
 
 
@@ -15,9 +15,9 @@ const App = () => {
         <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/about" component={About} />
-        <Route path="/album" component={Album} />
         <Route path="/services" component={Services} />
         <Route path="/pricing" component={Pricing} />
+        <Route exact path="/purchase/:id?" component={Purchase}/>
         </Switch>
       </div>
      </Provider>

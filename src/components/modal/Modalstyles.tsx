@@ -18,17 +18,13 @@ export const Background = styled.div `
     bottom: 0;
     left: 0;
     right: 0;
-    /* z-index: 300; */
-    /* background-color: ghostwhite; */
+
     width: 100%;
     height: 100vh;
 
-/* 
-    width: 100%;
-    height: 100rem;
-    position: absolute; */
+
     z-index: 2000;
-    background: rgba(0,0,0, 0.8);
+    background: ${({theme}) => theme.colors.modalWrapper};
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,34 +32,47 @@ export const Background = styled.div `
 
 
 export const ModalWrapper = styled.div`
-  width: 80rem;
-  height: 60rem;
-  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
-  background: #fff;
-  color: #000;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+width: 100%;
+  max-width: 100rem;
+  height: auto;
+  box-shadow: 0 5px 16px ${({theme}) => theme.colors.boxShadow};
+  
+  color: ${({theme}) => theme.colors.font};
+  /* display: grid; */
+  /* grid-template-columns: 1fr 1fr; */
   position: relative;
   z-index: 10;
-  border-radius: 10px;
+  /* border-radius: 10px; */
 `;
 
 
 export const ModalContent = styled.div` 
-    display: flex;
+    /* display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  line-height: 1.8;
-  color: blue;
-  p {
+  justify-content: center; */
+  /* align-items: center; */
+  /* line-height: 1.8; */
+ 
+  /* p {
     margin-bottom: 1rem;
-  }
+  } */
+
+  /* max-width: rem; */
+  
+
   button {
     padding: 10px 24px;
-    background: #141414;
-    color: #fff;
+    background: ${({theme}) => theme.colors.dark};
+    color: ${({theme}) => theme.colors.main};
     border: none;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+
+    margin: auto;
+      overflow: hidden;
   }
 ` 
 

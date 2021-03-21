@@ -3,7 +3,7 @@ import styled, {css} from 'styled-components';
 export const Wrapper = styled.div`
 /* width: 100vw; */
 height: auto;
-background-color: orangered;
+background-color: ${({theme}) => theme.colors.secondary};
 bottom: 0;
 /* position: absolute; */
 
@@ -42,7 +42,7 @@ grid-template-rows: 1fr; */
 export const One = styled.div`
 flex: 1 2 30rem;
 
-background-color: ghostwhite;
+background-color: ${({theme}) => theme.colors.main};
 position: relative;
 /* height: auto; */
 /* min-height: 615px; */
@@ -119,7 +119,7 @@ export const OneContentOne = styled.div`
   }
 ` 
 export const OneContentMenu = styled.div`
-font-size: 2.5rem;
+font-size: ${({theme}) => theme.fonts.l};
 font-weight: bold;
 margin: 6rem 0 2rem 0;
 ` 
@@ -132,7 +132,7 @@ export const OneContentTwo = styled.div`
     justify-self: start;
     align-self: flex-start;
     line-height: 4rem;
-    font-size: 1.2rem;
+    font-size: ${({theme}) => theme.fonts.xxs};
     @media ${({theme}) => theme.mediaQueries.below1500} {
       /* right: 0px; */
       /* grid-area: auto; */
@@ -143,7 +143,7 @@ export const OneContentTwo = styled.div`
     align-self: center;
   }
   @media ${({theme}) => theme.mediaQueries.below500} {
-    font-size: 1rem;
+    /* font-size: ${({theme}) => theme.fonts.xxs}; */
   }
 
     /* width: 180px; */
@@ -174,26 +174,26 @@ export const OneContentTwo = styled.div`
 
 
 const sharedStyles = css`
-  background-color: #eee;
+  background-color: ${({theme}) => theme.colors.main};
   height: 40px;
   /* border-radius: 5px; */
-  /* border: 1px solid #ddd; */
+
   border: 0;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid ${({theme}) => theme.colors.dark};
   margin: 1rem 0 2rem 0;
   padding: 1rem;
   box-sizing: border-box;
 
   &:focus {
       outline: none;
-      border-bottom: 2px solid black;
+      border-bottom: 2px solid ${({theme}) => theme.colors.dark};
   }
 `;
 
 
 export const InputContainer = styled.div`
 flex: 1 1 50rem;
-background-color: ghostwhite;
+background-color: ${({theme}) => theme.colors.main};
 position: relative;
 
 
@@ -226,16 +226,16 @@ export const StyledForm = styled.form`
     width: 100%;
     /* max-width: 70rem; */
     padding: 4rem;
-    /* background-color: lightblue; */
+  
     box-sizing: border-box;
 
     label {
-      font-size: 2rem;
+      font-size: ${({theme}) => theme.fonts.m};
     }
 
     h1{
       margin-top: 2rem;
-      font-size: 2.5rem;
+      font-size: ${({theme}) => theme.fonts.l};
       margin-bottom: 5rem;
     }
 
@@ -250,7 +250,7 @@ width: 100%;
 `
 
 export const TextArea = styled.textarea`
-  background-color: #eee;
+  background-color: ${({theme}) => theme.colors.main};
   width: 100%;
   /* width: 65rem; */
   min-height: 100px;
@@ -267,15 +267,17 @@ export const StyledButtonWrapper = styled.div`
   align-items: center;
     margin-top: 2rem;
 
+
+
 `
 
 
 export const StyledButton = styled.button`
 /* text-align: center; */
   display: block;
-  background-color: #f7797d;
-  color: #fff;
-  font-size: 2.2rem;
+  background-color: ${({theme}) => theme.colors.secondary};
+  color: ${({theme}) => theme.colors.main};
+  font-size: ${({theme}) => theme.fonts.m};
   border: 0;
   border-radius: 5rem;
   height: 7rem;
@@ -284,6 +286,11 @@ export const StyledButton = styled.button`
   cursor: pointer;
   box-sizing: border-box;
   /* position: relative; */
+  transition: all .3s ease;
+
+  &:hover {
+      background-color: ${({theme}) => theme.colors.tertiary};
+    }
 
   @media ${({theme}) => theme.mediaQueries.below1500} {
     max-width: 70rem;
@@ -291,7 +298,7 @@ export const StyledButton = styled.button`
 `;
 
 // export const StyledFieldset = styled.fieldset`
-//   border: 1px solid #ddd;
+
 //   border-radius: 5px;
 //   padding: 10px;
 //   margin: 20px 0;
@@ -307,9 +314,9 @@ export const StyledButton = styled.button`
 // `;
 
 export const StyledError = styled.div`
-  color: red;
+  color: ${({theme}) => theme.colors.alert};
   font-weight: 800;
-  font-size: 2rem;
+  font-size: ${({theme}) => theme.fonts.m};
   margin: 0 0 40px 0;
 `;
 
@@ -327,8 +334,8 @@ export const StyledError = styled.div`
 
 export const Three = styled.div`
 flex: 1 2 30rem;
-/* background-color: #428caa; */
-background-color: ghostwhite;
+
+background-color: ${({theme}) => theme.colors.main};
 position: relative;
 /* height: auto; */
 /* min-height: 615px; */
@@ -388,14 +395,14 @@ export const ThreeContentOne = styled.div`
   }
 ` 
 export const ThreeContentMenu = styled.div`
-font-size: 2.5rem;
+font-size: ${({theme}) => theme.fonts.l};
 font-weight: bold;
 margin: 6rem 0 2rem 0;
 ` 
-export const Link = styled.p`
+export const StyleLink = styled.p`
 font-weight: bold;
 line-height: 2em;
-font-size: 2rem;
+font-size: ${({theme}) => theme.fonts.m};
 /* border: 0;
 outline: 0; */
 
@@ -404,7 +411,11 @@ margin-block-start: 1em;
 margin-block-end: 1em;
 margin-inline-start: 0px;
 margin-inline-end: 0 px; */
-
+cursor: pointer;
+transition: all .3s ease;
+&:hover {
+  color:${({theme}) => theme.colors.secondary};
+}
 ` 
 export const ThreeContentTwo = styled.div`
     position: relative;
@@ -420,6 +431,10 @@ export const ThreeContentTwo = styled.div`
     justify-self: start;
     align-self: flex-start;
     
+    a {
+      color: ${({theme}) => theme.colors.font};
+      text-decoration: none;
+    }
 
     @media ${({theme}) => theme.mediaQueries.below1500} {
       /* grid-area: auto; */
@@ -444,7 +459,7 @@ export const ThreeContentTwo = styled.div`
 
 //     grid-area:4 / 1 / 5 / span 2;
 
-//     font-size: 1.5rem;
+
 //     text-decoration: underline;
 // ` 
 
@@ -462,7 +477,7 @@ export const ThreeContentTwo = styled.div`
 export const CopyWriteWrapper = styled.div`
   width: 100%;
   height: 5rem;
-  background-color: ghostwhite;
+  background-color: ${({theme}) => theme.colors.main};
   display: flex;
   text-align: center;
   justify-content: center;
@@ -482,7 +497,7 @@ export const CopyWrite = styled.div`
     /* grid-area:4 / 5 / 6 /  6; */
     /* justify-self: start;
     align-self: flex-start; */
-    font-size: 1.5rem;
+    font-size: ${({theme}) => theme.fonts.xs};
 
     /* @media ${({theme}) => theme.mediaQueries.below1500} {
       grid-area: auto;

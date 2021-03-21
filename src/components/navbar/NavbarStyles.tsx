@@ -1,6 +1,7 @@
 import { NONAME } from 'node:dns';
 import styled, {css} from 'styled-components';
 import Theme from '../theme/Theme';
+import { MdClose, MdMenu } from 'react-icons/md';
 
 export type Nav ={
     navbar?: boolean,
@@ -31,7 +32,7 @@ export const NavWrapper = styled.div<Nav>`
     transition: all .3s ease;
 
     ${({navbar}) => navbar ? css`
-        box-shadow:0.00px 0.00px 50px 0px rgba(196,48,107,1);
+        box-shadow:0.00px 0.00px 50px 0px ${({theme}) => theme.colors.secondary};
     ` : 
     css`
         box-shadow: none;
@@ -53,23 +54,32 @@ export const BtnWrapper = styled.div`
         justify-content:space-between;
     }
 
+    a {
+        text-decoration: none;
+    }
+
 `
 
 export const TitleWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: ${({theme}) => theme.fonts.m};
-    width: 17rem;
+    font-size: ${({theme}) => theme.fonts.l};
+    /* width: 17rem; */
+    padding: 0 4rem;
     height: auto;
     background-color: ${({theme}) => theme.colors.main };
-    font-size: 3rem;
+    
 
     ${sharedLinkStyles};
 
     a {
-        color: ${props => props.theme.colors.dark};
+        color: ${props => props.theme.colors.font};
         /* margin: 0 2rem; */
+    }
+
+    @media ${({theme}) => theme.mediaQueries.below1000} {
+        padding: 0 2rem;
     }
 
 `
@@ -100,7 +110,7 @@ export const MobilePageWrapper = styled.div<Nav>`
     left: 100vw;
     right: 0;
     z-index: 300;
-    /* background-color: ghostwhite; */
+
     width: 100%;
     height: 100vh;
     /* display: none; */
@@ -108,7 +118,7 @@ export const MobilePageWrapper = styled.div<Nav>`
 
   
     a {
-        color: ${props => props.theme.colors.dark};
+        color: ${props => props.theme.colors.font};
     }
     @media ${({theme}) => theme.mediaQueries.below1000} {
         
@@ -127,11 +137,11 @@ export const MobilePageWrapper = styled.div<Nav>`
 `
 
 export const MobileNavLinks = styled.div`
-    font-size: 2rem;
+    font-size: ${({theme}) => theme.fonts.m};
 
     a {
 
-        color: ${props => props.theme.colors.dark};
+        color: ${props => props.theme.colors.font};
         margin: 0 2rem;
     }
 
@@ -140,8 +150,8 @@ export const MobileNavLinks = styled.div`
         height: calc(100% - 7rem);
         position: relative;
         display: flex;
-        font-size: 2rem;
-        background-color: ghostwhite;
+        font-size: ${({theme}) => theme.fonts.m};
+        background-color: ${({theme}) => theme.colors.main};
       
         flex-direction: column;
         justify-content: space-evenly;
@@ -155,7 +165,7 @@ export const MobileNavLinks = styled.div`
         width: 100%;
         height: 100%;
         &:hover {
-            background-color: blue;
+            background-color: ${({theme}) => theme.colors.secondary};
         }
      }
     }
@@ -183,12 +193,18 @@ export const MobileNavLinks = styled.div`
 
 
 export const NavLinks = styled.div`
-    font-size: 2rem;
+    font-size: ${({theme}) => theme.fonts.m};
     ${sharedLinkStyles};
+    
     a {
+    transition: all .3s ease;
 
-        color: ${props => props.theme.colors.dark};
+        color: ${props => props.theme.colors.font};
         margin: 0 2rem;
+
+        &:hover {
+            color: ${({theme}) => theme.colors.secondary};
+        }
     }
 
     @media ${({theme}) => theme.mediaQueries.below1000} {
@@ -201,14 +217,21 @@ export const JoinBtn = styled.div`
     justify-content: center;
     align-items: center;
     font-size: ${({theme}) => theme.fonts.m};
-    width: 17rem;
+    /* width: 17rem; */
+    padding: 0 4rem;
     height: 9rem;
-    background-color: ${({theme}) => theme.colors.rose };
+    background-color: ${({theme}) => theme.colors.secondary };
     ${sharedLinkStyles};
-    a {
-        color: ghostwhite;
-        /* color: ${props => props.theme.colors.dark}; */
-        /* margin: 0 2rem; */
+    
+    text-decoration: none;
+    color: ${({theme}) => theme.colors.main };
+    /* color: ${props => props.theme.colors.font}; */
+    /* margin: 0 2rem; */
+    
+    transition: all .3s ease;
+
+    &:hover {
+        background-color: ${({theme}) => theme.colors.tertiary };
     }
 
     @media ${({theme}) => theme.mediaQueries.below1000} {
@@ -217,80 +240,114 @@ export const JoinBtn = styled.div`
 
 `
 
-export const NavButton = styled.button`
-    font-size: 4rem;
-    width: 7rem;
-    height: 7rem;
-    background-color: pink;
-    border: 0;
-    color: black;
-    display: none;
-    box-sizing: border-box;
-    padding: 1rem;
 
+export const CloseNavButton = styled(MdClose)<Nav> `
+   
+    transition: all .3s linear;
+    /* transition: opacity .3s visibility 0s 1s ease-in; */
+    /* opacity: 1; */
 
+    ${({mobileModal}) => mobileModal  ? css`
+    /* display: show; */
+    /* visibility: visible; */
+    opacity: 1;
+    ` : css`
+    /* display: none;  */
+    /* visibility: hidden; */
+    opacity: 0;
+    `}
+`
+export const OpenNavButton = styled(MdMenu)<Nav> `
+ 
+ transition: all .3s linear;
+ /* transition: opacity .3s visibility 0s 1s ease-in; */
+ ${({mobileModal}) => mobileModal ? css`
+ /* display: none;  */
+ /* visibility: hidden; */
+ opacity: 0;
+ ` : css`
+  /* display: show;  */
+  /* visibility: visible; */
+  opacity: 1;
+  `}
+`
 
-
-
-
-
-
-    @media ${({theme}) => theme.mediaQueries.below1000} {
+export const NavButtonWrapper = styled.div`
+  display: none;
+  /* width: 17rem; */
+  padding: 0 2rem;
+  @media ${({theme}) => theme.mediaQueries.below1000} {
         display: block;
     }
 `
 
+export const NavButton = styled.button<Nav>`
+    /* 
+    
+    width: 7rem;
+    height: 7rem;
+  
+    border: 0;
+
+    display: none;
+    box-sizing: border-box;
+    padding: 1rem;
+
+    transition: all .3s ease; */
+
+  /* position: absolute; */
+  /* top: 5%; */
+  /* left: 2rem; */
+  /* margin: 1rem; */
+  width: 3.5rem;
+    height: 3.5rem;
+    display: none;
+  flex-direction: column;
+  justify-content: space-around;
+background-color: ${({theme}) => theme.colors.main };
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-right: 2rem;
+  /* z-index: 10; */
+
+  &:focus {
+    outline: none;
+  }
+
+  div {
+    width: 3.5rem;
+    height: .3rem;
+    background: ${({theme}) => theme.colors.dark };
+    border-radius: 1rem;
+    transition: all 0.3s linear;
+    position: relative;
+    transform-origin: 1px;
+
+    :first-child {
+      transform: ${({ mobileModal }) => mobileModal ? 'rotate(45deg)' : 'rotate(0)'};
+    }
+
+    :nth-child(2) {
+      opacity: ${({ mobileModal }) => mobileModal ? '0' : '1'};
+      transform: ${({ mobileModal }) => mobileModal ? 'translateX(20px)' : 'translateX(0)'};
+    }
+
+    :nth-child(3) {
+      transform: ${({ mobileModal }) => mobileModal ? 'rotate(-45deg)' : 'rotate(0)'};
+    }
+  }
+
+  /* width: 17rem; */
+  /* padding: 0 2rem; */
+  
+  @media ${({theme}) => theme.mediaQueries.below1000} {
+        display: flex;
+    }
 
 
-// export const CloseButtonWrapper = styled.div`
-//         display: flex;
-//     align-items: flex-end;
-//     align-content: flex-end;
-//     justify-content: flex-end;
-// `
-
-// export const CloseButton = styled.button`
-//     font-size: 3rem;
-//     width: auto;
-//     height: 5rem;
-//     background-color: pink;
-//     border: 0;
-//     color: black;
-//     display: none;
-//     box-sizing: border-box;
-//     padding: 1rem;
+`
 
 
 
-//     @media ${({theme}) => theme.mediaQueries.below1000} {
-//         display: block;
-//     }
-// `
-
-
-// export const MobileNavLinks = styled.div`
-// width: 100%;
-// height: calc(100% - 9rem);
-// position: relative;
-// display: flex;
-// font-size: 2rem;
-// background-color: orangered;
-      
-// flex-direction: column;
-//     justify-content: space-evenly;
-//     align-items: center;
-//     align-content: center;
-//     ${sharedLinkStyles};
-//      a {
-//          display: flex;
-//          flex-direction: column;
-//          justify-content: center;
-//         width: 100%;
-//         height: 100%;
-//         &:hover {
-//             background-color: blue;
-//         }
-//      }
-
-// `
 

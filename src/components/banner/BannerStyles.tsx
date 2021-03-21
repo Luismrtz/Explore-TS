@@ -15,45 +15,30 @@ background: linear-gradient(to bottom, #4CA1AF, #2C3E50); /* W3C, IE 10+/ Edge, 
     align-items: center;
     text-align: center;
 
-    /* @media ${({theme}) => theme.mediaQueries.below1500} {
-      font-size: 3.5rem;
-      } */
     @media ${({theme}) => theme.mediaQueries.below1000} {
         min-height: 50rem;
         height: 100%;
       }
-    /* @media ${({theme}) => theme.mediaQueries.below750} {
-      font-size: 2.3rem;
-      }
-    @media ${({theme}) => theme.mediaQueries.below500} {
-      font-size: 2rem;
-      } */
+
 `
 
 
 
 export const BannerTextWrapper = styled.div`
     max-width: 70rem;
-    margin-top: -12rem;
+    margin-top: -10rem;
 
-    /* @media ${({theme}) => theme.mediaQueries.below1500} {
-      font-size: 3.5rem;
-      } */
+
     @media ${({theme}) => theme.mediaQueries.below1000} {
       margin-top: 0;
       }
-    /* @media ${({theme}) => theme.mediaQueries.below750} {
-      font-size: 2.3rem;
-      }
-    @media ${({theme}) => theme.mediaQueries.below500} {
-      font-size: 2rem;
-      } */
+
     h1 {
-        font-size: 6rem;
+        font-size: ${({theme}) => theme.fonts.xxl};
         padding: 0 2rem;
     }
     h2 {
-        font-size: 2.7rem;
+        font-size: ${({theme}) => theme.fonts.l};
         padding: 0 2rem;
     }
 `

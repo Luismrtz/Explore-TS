@@ -29,8 +29,8 @@ export const Modal: React.FC<DemStuff> = ({ showModal, setShowModal, h1, paragra
 
                     <ModalContent>
                        <img src={newUrl} alt="test"/>
-                        <h1>{h1}</h1>
-                        <p>{paragraph}</p>
+                        {/* <h1>{h1}</h1>
+                        <p>{paragraph}</p> */}
                         <CloseModalButton aria-label='Close modal'
                     onClick={() => setShowModal(false)}
                     />

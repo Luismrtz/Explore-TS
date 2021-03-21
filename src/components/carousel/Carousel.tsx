@@ -1,8 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
-import {Head2, Head1, TextInfo, ImgModalWrapper, CarouselButton, CarouselButtonWrapper, ArrowLeft, ArrowRight, CarouselContainer, ImgModal} from './CaroStyles'
+import {Head2, Head1, TextInfo,  CarouselButton, CarouselButtonWrapper, ArrowLeft, ArrowRight, CarouselContainer, ImgModal} from './CaroStyles'
 import './caroS.css'
 
 
@@ -101,7 +102,7 @@ const Carousel: React.FC<TextInfo> = ({inputH1, inputH2, type, children, newUrl,
              </Slider>
              <CarouselButtonWrapper>
              {type && 
-             <CarouselButton>View All</CarouselButton>
+             <Link to="/about"><CarouselButton> View</CarouselButton></Link>
             }
              </CarouselButtonWrapper>
           </CarouselContainer>
