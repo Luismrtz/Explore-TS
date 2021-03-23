@@ -1,49 +1,32 @@
-
-
-import React, { useEffect } from 'react';
-import Footer from '../footer/Footer';
-import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
-import Banner from '../banner/Banner';
-import Payment from '../payment/Payment';
-// import Card from '../card/Card';
-
-
-
-
-
-
-// export type demTypes = {
-//     showModal: boolean
-// }
+import React, { useEffect } from "react";
+import Footer from "../footer/Footer";
+import { RouteComponentProps } from "react-router-dom";
+import Banner from "../banner/Banner";
+import Payment from "../payment/Payment";
 
 const Purchase: React.FC<RouteComponentProps<any>> = (props) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    let number = props.match.params.id;
+    if (!number) {
+      props.history.push("/pricing");
+    } else {
+      return;
+    }
 
-
-    useEffect(() => {
-        let number = props.match.params.id;
-        console.log(number)
-        if(!number) {
-            props.history.push("/pricing");
-        }
-        else {
-            return;
-        }
-        
-        return () => {
-           
-        }
-    }, [props])
-
+    return () => {};
+  }, [props]);
 
   return (
     <div>
-     <Banner BanH1Title="Membership Plan" BanH2Text="Payment info"  isOn={false}/>
-      {/* <Card/> */}
-        
-    <Payment/>
-    <Footer/>
+      <Banner
+        BanH1Title="Membership Plan"
+        BanH2Text="Payment info"
+        isOn={false}
+      />
 
-  
+      <Payment />
+      <Footer />
     </div>
   );
 };

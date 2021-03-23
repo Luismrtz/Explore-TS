@@ -1,7 +1,9 @@
 import axios from 'axios';
 import { Dispatch} from 'redux';
 import { ActionType } from '../action-types';
-import { Action } from '../actions';
+import { Action, 
+    // DetailAction 
+} from '../actions';
 
 export const SearchApi = (apis: string) => async (dispatch: Dispatch<Action>) => {
     dispatch({
@@ -9,9 +11,7 @@ export const SearchApi = (apis: string) => async (dispatch: Dispatch<Action>) =>
     });
     try {
         const { data } = await axios.get(`https://pokeapi.co/api/v2/pokemon/${apis}`)
-        // const names = data.results.map((result: any) => {
-        //     return result.url;
-        // })
+ 
         dispatch({type: ActionType.SEARCH_API_SUCCESS, payload: data})
     } catch (err) {
         dispatch({type: ActionType.SEARCH_API_ERROR,
@@ -19,3 +19,15 @@ export const SearchApi = (apis: string) => async (dispatch: Dispatch<Action>) =>
             });
     }
 }
+
+//! TBA
+// export const PriceDetails = (Prices: Array<any>) => (dispatch: Dispatch<DetailAction>) => {
+//     dispatch({ type: ActionType.PRICE_DETAILS});
+//     try {
+        
+
+//         dispatch({type: ActionType.PRICE_DETAILS_SUCCESS, payload: {Prices}});
+//     } catch (err) {
+//         dispatch({type: ActionType.PRICE_DETAILS_ERROR});
+//     }
+// }

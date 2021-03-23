@@ -1,8 +1,8 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
     html {
-        /* height: 100%; */
+
         font-size: 62.5%;
         box-sizing: border-box;
     }
@@ -14,6 +14,7 @@ const GlobalStyle = createGlobalStyle`
     }
     body {
         background-color: ghostwhite;
+        font-family: 'Open Sans', sans-serif;
     }
 
 `;

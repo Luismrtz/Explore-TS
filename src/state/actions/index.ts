@@ -1,18 +1,6 @@
 import { ActionType } from '../action-types';
 
-// interface SearchAPIAction {
-//   type: ActionType.SEARCH_API;
-// }
 
-// interface SearchAPISuccessAction {
-//   type: ActionType.SEARCH_API_SUCCESS;
-//   payload: string[];
-// }
-
-// interface SearchAPIErrorAction {
-//   type: ActionType.SEARCH_API_ERROR;
-//   payload: string;
-// }
 
 
 
@@ -62,3 +50,42 @@ export type Action =
   | SearchAPIAction
   | SearchAPISuccessAction
   | SearchAPIErrorAction;
+
+
+
+  //? 
+  //* price details
+ //! TBA
+  // export type PriceArr = {
+  //     Prices: CardPrices[]
+  // }
+
+  // export type CardPrices = {
+  //   newName: string,
+  //   newPrice: number,
+  //   cardId: number
+  // }
+
+
+
+
+  // export interface PriceDetailsAction {
+  //   /// typeof points to LITERAL type instead of the 'string' value
+  //   type: typeof ActionType.PRICE_DETAILS
+  // }
+  
+  // export interface PriceDetailsErrorAction {
+  //   type: typeof ActionType.PRICE_DETAILS_ERROR
+  //   // payload: string;
+  // }
+  
+  // export interface PriceDetailsSuccessAction {
+  //   type: typeof ActionType.PRICE_DETAILS_SUCCESS,
+  //   payload: PriceArr
+  
+  // }
+
+  // export type DetailAction =
+  // | PriceDetailsAction
+  // | PriceDetailsErrorAction
+  // | PriceDetailsSuccessAction;
