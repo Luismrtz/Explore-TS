@@ -1,2 +1,2 @@
-# Zenitram
+# Explore
 > React / Redux / TypeScript
